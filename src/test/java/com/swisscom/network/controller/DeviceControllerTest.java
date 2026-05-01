@@ -1,4 +1,4 @@
-package com.swisscom.network;
+package com.swisscom.network.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.swisscom.network.model.Device;
