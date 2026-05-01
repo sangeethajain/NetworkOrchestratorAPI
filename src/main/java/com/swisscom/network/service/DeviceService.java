@@ -3,6 +3,7 @@ import com.swisscom.network.model.Device;
 import com.swisscom.network.repository.DeviceRepository;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class DeviceService {
@@ -40,16 +41,23 @@ public class DeviceService {
         return repository.findByStatus(status);
     }
     // Network simulation logic
+    @Transactional
     public Device restartDevice(Long id) {
         Device device = getDeviceById(id);
         if(!device.getStatus().equals("ACTIVE")){
             throw new RuntimeException("Device is not active, cannot restart");
         }
         device.setStatus("RESTARTING");
-        repository.save(device);
+        System.out.println("Status now: RESTARTING");
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
         // simulate restart
         device.setStatus("ACTIVE");
-        return repository.save(device);
+        System.out.println("Status now: ACTIVE");
+        return device;
 
     }
 }
