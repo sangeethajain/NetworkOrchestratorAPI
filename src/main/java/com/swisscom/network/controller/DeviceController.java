@@ -35,6 +35,10 @@ public class DeviceController {
     public List<Device> getByLocation(@PathVariable String location) {
         return service.getDevicesByLocation(location);
     }
+    @GetMapping("/type/{type}")
+    public List<Device> getByType(@PathVariable String type){
+        return service.getDevicesByType(type);
+    }
     @GetMapping("/status/{status}")
     public List<Device> getByStatus(@PathVariable String status) {
         return service.getDevicesByStatus(status);

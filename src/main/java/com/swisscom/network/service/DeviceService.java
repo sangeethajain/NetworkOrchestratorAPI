@@ -37,6 +37,9 @@ public class DeviceService {
     public List<Device> getDevicesByLocation(String location) {
         return repository.findByLocation(location);
     }
+    public List<Device> getDevicesByType(String type) {
+        return repository.findByDeviceType(type);
+    }
     public List<Device> getDevicesByStatus(String status) {
         return repository.findByStatus(status);
     }

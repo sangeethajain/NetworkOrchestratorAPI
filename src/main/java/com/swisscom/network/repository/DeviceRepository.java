@@ -5,5 +5,6 @@ import java.util.List;
 
 public interface DeviceRepository extends JpaRepository<Device, Long> {
     List<Device> findByLocation(String location);
+    List<Device> findByDeviceType(String deviceType);
     List<Device> findByStatus(String status);
 }
