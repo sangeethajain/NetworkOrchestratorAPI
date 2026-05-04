@@ -4,6 +4,8 @@ import com.swisscom.network.repository.DeviceRepository;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
+import org.springframework.http.HttpStatus;
 
 @Service
 public class DeviceService {
@@ -16,7 +18,7 @@ public class DeviceService {
     }
     public Device getDeviceById(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Device not found"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Device not found"));
     }
     public Device createDevice(Device device) {
         device.setStatus("ACTIVE"); // default behavior
