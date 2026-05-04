@@ -60,7 +60,7 @@ public class DeviceService {
         // simulate restart
         device.setStatus("ACTIVE");
         System.out.println("Status now: ACTIVE");
-        return device;
+        return repository.save(device);
 
     }
 }
