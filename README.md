@@ -48,11 +48,16 @@ It simulates real-world operations like:
 
 ## Testing
 
-The project includes:
+The project includes multiple levels of testing to ensure reliability:
 
-* Unit Tests (Service layer using Mockito)
-* Controller Tests (MockMvc)
-* Integration Tests (end-to-end API flow)
+* **Unit Tests:** Service layer tested using Mockito to validate business logic and repository interactions
+* **Integration Tests:** Controller endpoints tested using MockMvc with in-memory H2 database
+* **Test Coverage Includes:**
+
+  * Device creation and retrieval
+  * Restart workflow validation (status transitions)
+  * Error handling (device not found)
+
 
 ---
 
